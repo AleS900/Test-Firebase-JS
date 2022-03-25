@@ -2,34 +2,26 @@ import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'person',
-  template:`
-  <div style="float: left; margin: 10px; padding: 10px;" [style.background] = "vaccined ? 'green' : 'red'">
+  template: `
+  <div style="float: left; margin: 10px; padding: 10px; background-color: green">
   <p>Name: {{name | uppercase}}</p>
-  <p>Age: {{age}}</p>
-  <p>Date: {{date|date: 'dd/MM/yyyy'}}</p>
-  <p *ngIf=!vaccined>Disease: {{disease | bytn}}<p>
-  <p *ngIf=!vaccined > Vaccine Type: {{vaccineType}}<p>
-  <p *ngIf=vaccined> Vaccined: Yes</p>
-  <p *ngIf=!vaccined> Vaccined: No</p>
-  <p *ngIf=!vaccined > Doses: {{doses}}<p>
+  <p>Date: {{fecha}}</p>
   <ng-content></ng-content>
   </div>
-  `
+  `,
 })
 export class PersonComponent implements OnInit {
+  @Input() id_user: string;
+  @Input() name: string;
+  @Input() lastname: string;
+  @Input() username: string;
+  @Input() password: string;
+  @Input() email: string;
+  @Input() category: string;
+  @Input() rol: string;
+  @Input() fecha: string;
 
-  @Input() id:string;
-  @Input() name:string;
-  @Input() age:number;
-  @Input() date:string;
-  @Input() disease:boolean;
-  @Input() vaccineType:string;
-  @Input() vaccined:number;
-  @Input() doses:number;
-  
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

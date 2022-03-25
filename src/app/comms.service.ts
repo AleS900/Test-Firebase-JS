@@ -4,30 +4,30 @@ import { Observable } from 'rxjs';
 
 @Injectable({providedIn: 'root'})
 export class CommsService {
-  url="https://test-angular-2ndtest-default-rtdb.firebaseio.com/"
+  url="https://certi-js-db-default-rtdb.firebaseio.com/"
   constructor(private http: HttpClient) { }
 
   public getAllVac():Observable<any>{
-    return this.http.get(`${this.url}vaccinated.json`)
+    return this.http.get(`${this.url}user.json`)
   }
 
   public getAllUnvac():Observable<any>{
-    return this.http.get(`${this.url}unvaccinated.json`)
+    return this.http.get(`${this.url}user.json`)
   }
 
   public updateVac(id:string,doses:number):Observable<any>{
-    return this.http.patch(`${this.url}unvaccinated/${id}.json`,{"doses":doses})
+    return this.http.patch(`${this.url}user/${id}.json`,{"doses":doses})
   }
 
   public createPerson(body: any): Observable<any>{
     return this.http.post(
-      `${this.url}vaccinated.json`,
+      `${this.url}user.json`,
       body);
   }
 
   public deletePerson(id: string): Observable<any>{
     console.log("Deleting...")
     return this.http.delete(
-      `${this.url}unvaccinated/${id}.json`);
+      `${this.url}user/${id}.json`);
   }
 }
