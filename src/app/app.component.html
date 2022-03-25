@@ -1,21 +1,36 @@
-<p>2 VACUNAS</p>
+<p>USUARIOS</p>
 
-<div *ngIf="!checkAllVac()">EVERYBODY VACCINATED</div>
-<div>Vaccinated = {{numVac}}</div>
+<div>Usuarios Registrados = {{ numVac }}</div>
 <div style="display: flex; flex-direction: row">
-    <div *ngFor="let person of vac">
-        <person 
-  [id_user]="person[0]" 
-  [name] = "person[1]['name']" 
-  [lastname]="person[1]['lastname']"  
-  [username]= "person[1]['username']"
-  [password]= "person[1]['password']" 
-  [email]= "person[1]['email']" 
-  [category]= "person[1]['category']" 
-  [rol]= "person[1]['rol']"
-  [fecha]= "person[1]['fecha']">
-
-        </person>
-    </div>
+  <div *ngFor="let person of vac">
+    <person
+      [id_user]="person[0]"
+      [name]="person[1]['name']"
+      [lastname]="person[1]['lastname']"
+      [username]="person[1]['username']"
+      [password]="person[1]['password']"
+      [email]="person[1]['email']"
+      [category]="person[1]['category']"
+      [rol]="person[1]['rol']"
+      [fecha]="person[1]['fecha']"
+    >
+      <button
+        (click)="
+          ChangeRol(
+            person[0],
+            person[1]['name'],
+            person[1]['lastname'],
+            person[1]['username'],
+            person[1]['password'],
+            person[1]['email'],
+            person[1]['category'],
+            person[1]['rol'],
+            person[1]['fecha']
+          )
+        "
+      >
+        Cambiar Permisos
+      </button>
+    </person>
   </div>
-
+</div>

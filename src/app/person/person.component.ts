@@ -3,9 +3,13 @@ import { Component, Input, OnInit } from '@angular/core';
 @Component({
   selector: 'person',
   template: `
-  <div style="float: left; margin: 10px; padding: 10px; background-color: green">
-  <p>Name: {{name | uppercase}}</p>
-  <p>Date: {{fecha}}</p>
+  <div style="float: left; margin: 10px; padding: 10px"
+  [style.background] = "rol=='admin' ? 'green' : 'red'">
+  <p><b>Usuario:</b> {{username}}</p>
+  <p><b>Nombre:</b> {{name}} {{lastname}}</p>
+  <p><b>Correo:</b> {{email}}</p>
+  <p><b>Categorías:</b> {{category}}</p>
+  <p><b>Rol:</b> {{rol}}</p>
   <ng-content></ng-content>
   </div>
   `,

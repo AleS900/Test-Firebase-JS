@@ -15,8 +15,8 @@ export class CommsService {
     return this.http.get(`${this.url}user.json`)
   }
 
-  public updateVac(id:string,doses:number):Observable<any>{
-    return this.http.patch(`${this.url}user/${id}.json`,{"doses":doses})
+  public updateVac(id:string,doses:string):Observable<any>{
+    return this.http.patch(`${this.url}user/${id}.json`,{"rol":doses})
   }
 
   public createPerson(body: any): Observable<any>{
